@@ -1,0 +1,19 @@
+{
+  "name": "slack-events-relay",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stripethree/slack-events-relay.git"
+  },
+  "author": "Jeff Israel (jeff@stripethree.net)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stripethree/slack-events-relay/issues"
+  },
+  "homepage": "https://github.com/stripethree/slack-events-relay#readme"
+}
