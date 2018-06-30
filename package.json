@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "nodemon -x npm start",
     "lint": "eslint ./src",
+    "prepush": "eslint ./src",
     "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
