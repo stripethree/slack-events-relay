@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/stripethree/slack-events-relay/issues"
   },
-  "homepage": "https://github.com/stripethree/slack-events-relay#readme"
+  "homepage": "https://github.com/stripethree/slack-events-relay#readme",
+  "dependencies": {
+    "@slack/client": "^4.3.1"
+  }
 }
