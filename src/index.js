@@ -1,3 +1,4 @@
+const bodyParser = require('body-parser')
 const express = require('express');
 const { Slack } = require('./slack');
 
