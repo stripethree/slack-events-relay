@@ -61,4 +61,4 @@ typings/
 .next
 
 # env files
-*.env*
+.env*
