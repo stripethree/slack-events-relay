@@ -1,19 +1,33 @@
-<!--
-Before making a PR please make sure to read our contributing guidelines
-https://github.com/stripethree/slack-events-relay/blob/master/CONTRIBUTING.md
+## Why are we doing this?
 
-For issue references: Add a comma-separated list of a [closing word](https://help.github.com/articles/closing-issues-via-commit-messages/) followed by the ticket number fixed by the PR. It should be underlined in the preview if done correctly.
--->
+What problem is this PR solving?
 
-| Q                        | A <!--(Can use an emoji 👍) -->
-| ------------------------ | ---
-| Fixed Issues?            | `Fixes #1, Fixes #2` <!-- remove the (`) quotes to link the issues -->
-| Patch: Bug Fix?          |
-| Major: Breaking Change?  |
-| Minor: New Feature?      |
-| Tests Added + Pass?      | Yes
-| Documentation PR         | <!-- If so, add `[skip ci]` to your commit message to skip CI -->
-| Any Dependency Changes?  |
-| License                  | MIT
+## Did you document your work?
 
-<!-- Describe your changes below in as much detail as possible -->
+Can anyone else do what you did by reading the `README`? Is there pertinent information
+elsewhere?
+
+## How can someone test these changes?
+
+Steps to manually verify the change: _arrange_, _act_, _assert_.
+
+## What possible risks or adverse effects are there?
+
+* Uptime
+* Security
+* Performance degradation
+* Data loss
+
+If applicable, include a technical debt note.
+
+## What are the follow-up tasks?
+
+* Was there something you postponed but want to revisit?
+* Is there an artifact that needs to be deployed?
+* Is there a change to CI that needs to be made?
+* Is there something to do out-of-band after this is landed?
+* Do you need to update the release notes?
+
+## Are there any known issues?
+
+Are there things within this PR that should be improved but are not mentioned in _follow-up tasks_?
