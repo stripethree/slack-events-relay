@@ -12,7 +12,7 @@ class Slack {
   sendMessage(channelId, message) {
     const options = {
       channel: channelId, text: message
-    }
+    };
     return this.webClient.chat.postMessage(options);
   }
 
