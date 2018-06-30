@@ -1,3 +1,26 @@
 {
-    "extends": "airbnb-base"
+	"extends": "airbnb-base",
+	"rules": {
+		"comma-dangle": ["error", "never"],
+		"complexity": ["warn", 10],
+		"consistent-this": ["error", "_this"],
+		"curly": "error",
+		"function-paren-newline": "off",
+		"indent": ["error", 2, {
+			"SwitchCase": 1
+		}],
+		"no-continue": "off",
+		"no-plusplus": "off",
+		"no-unused-vars": "error",
+		"prefer-destructuring": "off",
+		"quote-props": ["error", "as-needed", {
+			"keywords": false,
+			"unnecessary": true,
+			"numbers": false
+		}],
+		"sort-vars": ["error", {
+			"ignoreCase": true
+		}],
+		"valid-jsdoc": "error"
+	}
 }
