@@ -34,12 +34,16 @@ app.post('/relay', bodyParser.json({ verify: verifyRelayReq }), (req, res) => {
 });
 
 // START THE THINGS
-const port = process.env.PORT || 8080;
-app.listen(port, (err) => {
-  if (err) {
-    throw err;
-  }
-  debug('Server running on port %s', port);
-});
+if (process.env.NODE_ENV !== 'test') {
+  const port = process.env.PORT || 8080;
+  app.listen(port, (err) => {
+    if (err) {
+      throw err;
+    }
+    debug('Server running on port %s', port);
+  });
+  slack.start();
+}
 
-slack.start();
+
+exports.app = app;
