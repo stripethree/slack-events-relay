@@ -47,3 +47,4 @@ if (process.env.NODE_ENV !== 'test') {
 
 
 exports.app = app;
+exports.verifyRelayReq = verifyRelayReq;
