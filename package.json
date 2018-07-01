@@ -7,6 +7,7 @@
     "dev": "nodemon -x npm start",
     "lint": "eslint ./src",
     "prepush": "npm test",
+    "pretest": "npm run lint",
     "start": "node src/index.js",
     "tdd": "NODE_ENV=test mocha --watch",
     "test": "NODE_ENV=test mocha"
