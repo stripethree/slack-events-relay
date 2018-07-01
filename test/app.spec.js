@@ -4,7 +4,7 @@ const request = require('supertest');
 const { app } = require('../src/index');
 
 describe('app', () => {
-  it('provides a root route', () => request(app)
+  it('provides a default route', () => request(app)
     .get('/')
     .expect(200)
     .then((res) => {
