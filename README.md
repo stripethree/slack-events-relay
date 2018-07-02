@@ -2,6 +2,7 @@
 
 While working on [`launch-vehicle-fbm`](https://github.com/CondeNast/launch-vehicle-fbm), my team started writing a  client to dump chat interactions to a private Slack channel for debugging purposes. This evolved into [`messenger-slack-ghost`](https://github.com/crccheck/messenger-slack-ghost). What I am looking to do here is evolve this concept into something I can use to debug events on websites I manage by providing some details to a Slack channel.
 
+[![Build Status](https://travis-ci.org/stripethree/slack-events-relay.svg?branch=master)](https://travis-ci.org/stripethree/slack-events-relay)
 [![Maintainability](https://api.codeclimate.com/v1/badges/83d1fba8a9ddaab579e9/maintainability)](https://codeclimate.com/github/stripethree/slack-events-relay/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/83d1fba8a9ddaab579e9/test_coverage)](https://codeclimate.com/github/stripethree/slack-events-relay/test_coverage)
 
