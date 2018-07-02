@@ -1,7 +1,8 @@
 const assert = require('assert');
 const request = require('supertest');
+const sinon = require('sinon');
 
-const { app, verifyRelayReq } = require('../src/index');
+const { app, slack, verifyRelayReq } = require('../src/index');
 
 describe('app', () => {
   describe('default route', () => {
@@ -14,7 +15,20 @@ describe('app', () => {
   });
 
   describe('relay route', () => {
-    xit('sends a Slack message with POST data');
+    it('sends a Slack message with POST data', () => {
+      const sendMessageStub = sinon.stub(slack, 'sendMessage').returns(Promise.resolve({}));
+      const postData = { key: 'value' };
+      request(app)
+        .post('/relay')
+        .send(postData)
+        .set('Content-Type', 'application/json')
+        .set('x-api-key', process.env.API_KEY)
+        .expect(200)
+        .then(() => {
+          const expected = `\`\`\`${JSON.stringify(postData, undefined, 2)}\`\`\``;
+          assert.equal(expected, sendMessageStub.getCall(0).args[1]);
+        });
+    });
   });
 });
 

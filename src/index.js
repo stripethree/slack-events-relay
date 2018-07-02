@@ -47,4 +47,5 @@ if (process.env.NODE_ENV !== 'test') {
 
 
 exports.app = app;
+exports.slack = slack;
 exports.verifyRelayReq = verifyRelayReq;
