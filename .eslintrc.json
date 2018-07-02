@@ -1,5 +1,10 @@
 {
+	"env": {
+	  "node": true,
+	  "mocha": true
+	},
 	"extends": "airbnb-base",
+	"plugins": ["mocha"],
 	"rules": {
 		"array-bracket-spacing": ["error", "never"],
 		"arrow-parens": ["error", "always"],
