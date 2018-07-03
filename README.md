@@ -28,7 +28,7 @@ The _dev_ target assumes [_nodemon_] is installed and available globally; it is 
 
 ## Logging and metrics
 
-**TODO**: The [debug] package is for a firehose of data sent to stdout/stderr
+The [debug] package is for a firehose of data sent to stdout/stderr
 
 [debug]: https://github.com/visionmedia/debug
 
