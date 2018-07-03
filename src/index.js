@@ -2,11 +2,18 @@ const bodyParser = require('body-parser');
 const debug = require('debug')('relay-app');
 const express = require('express');
 const logError = require('debug')('relay-app:error');
+const Raven = require('raven');
 const { Slack } = require('./slack');
 
 const app = express();
 
 const slack = new Slack(process.env.SLACK_BOT_TOKEN);
+
+if (process.env.SENTRY_DSN) {
+  Raven.config(process.env.SENTRY_DSN, {
+    captureUnhandledRejections: true
+  }).install();
+}
 
 // HELPERS
 const API_KEY = process.env.API_KEY;

@@ -28,7 +28,7 @@ The _dev_ target assumes [_nodemon_] is installed and available globally; it is 
 
 ## Logging and metrics
 
-**TODO**: The [debug] package is for a firehose of data sent to stdout/stderr
+The [debug] package is for a firehose of data sent to stdout/stderr
 
 [debug]: https://github.com/visionmedia/debug
 
@@ -38,8 +38,11 @@ The _dev_ target assumes [_nodemon_] is installed and available globally; it is 
 
 | Key | Required? | Default? |
 |-|-|-|
-| `PORT` | Y | 8080 |
+| `API_KEY` | Y | _none_ |
+| `PORT` | N | 8080 |
+| `SENTRY_DSN` | N | _none_
 | `SLACK_BOT_TOKEN` | Y | _none_ |
+| `SLACK_CHANNEL_ID` | Y | _none _ |
 
 ### Endpoints
 
