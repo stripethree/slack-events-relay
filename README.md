@@ -42,7 +42,7 @@ The [debug] package is for a firehose of data sent to stdout/stderr
 | `PORT` | N | 8080 |
 | `SENTRY_DSN` | N | _none_
 | `SLACK_BOT_TOKEN` | Y | _none_ |
-| `SLACK_CHANNEL_ID` | Y | _none _ |
+| `SLACK_CHANNEL_ID` | Y | _none_ |
 
 ### Endpoints
 
