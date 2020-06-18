@@ -1,51 +1,70 @@
 {
-	"env": {
-	  "node": true,
-	  "mocha": true
-	},
-	"extends": "airbnb-base",
-	"plugins": ["mocha"],
-	"rules": {
-		"array-bracket-spacing": ["error", "never"],
-		"arrow-parens": ["error", "always"],
-		"comma-dangle": ["error", "never"],
-		"complexity": ["warn", 10],
-		"consistent-this": ["error", "_this"],
-		"curly": "error",
-		"func-call-spacing": ["error", "never"],
-		"function-paren-newline": "off",
-		"indent": ["error", 2, {
-			"SwitchCase": 1
-		}],
-		"no-continue": "off",
-		"no-plusplus": "off",
-		"no-unused-vars": "error",
-		"object-curly-spacing": ["error", "always"],
-		"padded-blocks": ["error", "never"],
-		"prefer-arrow-callback": ["error", {
-			"allowNamedFunctions": false,
-			"allowUnboundThis": true
-		}],
-		"prefer-const": ["error", {
-			"destructuring": "any",
-			"ignoreReadBeforeAssign": true
-		}],
-		"prefer-destructuring": "off",
-		"quotes": ["error", "single", {
-			"avoidEscape": true
-		}],
-		"quote-props": ["error", "as-needed", {
-			"keywords": false,
-			"unnecessary": true,
-			"numbers": false
-		}],
-		"sort-vars": ["error", {
-			"ignoreCase": true
-		}],
-		"spaced-comment": ["error", "always", {
-			"exceptions": ["/"],
-			"markers": [":", "::"]
-		}],
-		"valid-jsdoc": "error"
-	}
+  "env": {
+    "node": true,
+    "mocha": true
+  },
+  "extends": "airbnb-base",
+  "plugins": ["mocha"],
+  "rules": {
+    "array-bracket-spacing": ["error", "never"],
+    "arrow-parens": "off",
+    "comma-dangle": ["error", "never"],
+    "complexity": ["warn", 10],
+    "consistent-this": ["error", "_this"],
+    "curly": "error",
+    "func-call-spacing": ["error", "never"],
+    "function-paren-newline": "off",
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "no-continue": "off",
+    "no-plusplus": "off",
+    "no-unused-vars": "error",
+    "object-curly-spacing": ["error", "always"],
+    "padded-blocks": ["error", "never"],
+    "prefer-arrow-callback": [
+      "error",
+      {
+        "allowNamedFunctions": false,
+        "allowUnboundThis": true
+      }
+    ],
+    "prefer-const": [
+      "error",
+      {
+        "destructuring": "any",
+        "ignoreReadBeforeAssign": true
+      }
+    ],
+    "prefer-destructuring": "off",
+    "quotes": "off",
+    "quote-props": [
+      "error",
+      "as-needed",
+      {
+        "keywords": false,
+        "unnecessary": true,
+        "numbers": false
+      }
+    ],
+    "sort-vars": [
+      "error",
+      {
+        "ignoreCase": true
+      }
+    ],
+    "spaced-comment": [
+      "error",
+      "always",
+      {
+        "exceptions": ["/"],
+        "markers": [":", "::"]
+      }
+    ],
+    "valid-jsdoc": "error"
+  }
 }
