@@ -1,9 +1,9 @@
-const bodyParser = require('body-parser');
-const debug = require('debug')('relay-app');
-const express = require('express');
-const logError = require('debug')('relay-app:error');
-const Raven = require('raven');
-const { Slack } = require('./slack');
+const bodyParser = require("body-parser");
+const debug = require("debug")("relay-app");
+const express = require("express");
+const logError = require("debug")("relay-app:error");
+const Raven = require("raven");
+const { Slack } = require("./slack");
 
 const app = express();
 
@@ -18,40 +18,38 @@ if (process.env.SENTRY_DSN) {
 // HELPERS
 const API_KEY = process.env.API_KEY;
 function verifyRelayReq(req) {
-  const reqApiKey = req.headers['x-api-key'];
+  const reqApiKey = req.headers["x-api-key"];
   if (!reqApiKey) {
-    throw new Error('No API key in request header.');
+    throw new Error("No API key in request header.");
   }
   if (reqApiKey !== API_KEY) {
-    throw new Error('Invalid API key in request header.');
+    throw new Error("Invalid API key in request header.");
   }
 }
 
 // ROUTES
-app.get('/', (req, res) => res.send('🤖'));
+app.get("/", (req, res) => res.send("🤖"));
 
 const channelId = process.env.SLACK_CHANNEL_ID;
-app.post('/relay', bodyParser.json({ verify: verifyRelayReq }), (req, res) => {
+app.post("/relay", bodyParser.json({ verify: verifyRelayReq }), (req, res) => {
   const data = req.body;
   const message = `\`\`\`${JSON.stringify(data, undefined, 2)}\`\`\``;
-  slack.sendMessage(channelId, message)
-    .catch((err) => logError(err));
+  slack.sendMessage(channelId, message).catch(err => logError(err));
 
   res.sendStatus(200);
 });
 
 // START THE THINGS
-if (process.env.NODE_ENV !== 'test') {
+if (process.env.NODE_ENV !== "test") {
   const port = process.env.PORT || 8080;
-  app.listen(port, (err) => {
+  app.listen(port, err => {
     if (err) {
       throw err;
     }
-    debug('Server running on port %s', port);
+    debug("Server running on port %s", port);
   });
   slack.start();
 }
-
 
 exports.app = app;
 exports.slack = slack;
