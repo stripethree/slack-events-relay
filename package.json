@@ -6,8 +6,8 @@
   "scripts": {
     "coverage": "nyc report --reporter=lcov",
     "dev": "nodemon -x npm start",
-    "lint": "eslint --fix src/",
-    "prettier": "prettier --write 'src/*'",
+    "lint": "eslint src/",
+    "prettier": "prettier 'src/*'",
     "prepush": "npm test",
     "pretest": "npm run lint && npm run prettier",
     "start": "node src/index.js",
