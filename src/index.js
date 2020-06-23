@@ -11,7 +11,7 @@ const slack = new Slack(process.env.SLACK_BOT_TOKEN);
 
 if (process.env.SENTRY_DSN) {
   Raven.config(process.env.SENTRY_DSN, {
-    captureUnhandledRejections: true
+    captureUnhandledRejections: true,
   }).install();
 }
 
@@ -34,7 +34,7 @@ const channelId = process.env.SLACK_CHANNEL_ID;
 app.post("/relay", bodyParser.json({ verify: verifyRelayReq }), (req, res) => {
   const data = req.body;
   const message = `\`\`\`${JSON.stringify(data, undefined, 2)}\`\`\``;
-  slack.sendMessage(channelId, message).catch(err => logError(err));
+  slack.sendMessage(channelId, message).catch((err) => logError(err));
 
   res.sendStatus(200);
 });
@@ -42,7 +42,7 @@ app.post("/relay", bodyParser.json({ verify: verifyRelayReq }), (req, res) => {
 // START THE THINGS
 if (process.env.NODE_ENV !== "test") {
   const port = process.env.PORT || 8080;
-  app.listen(port, err => {
+  app.listen(port, (err) => {
     if (err) {
       throw err;
     }
