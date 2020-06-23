@@ -38,6 +38,7 @@
     "eslint-plugin-mocha": "^6.3.0",
     "husky": "^4.2.5",
     "mocha": "^8.0.1",
+    "nodemon": "^2.0.4",
     "nyc": "^15.1.0",
     "prettier": "^2.0.5",
     "sinon": "^9.0.2",
