@@ -1,4 +1,4 @@
-const { RTMClient, WebClient } = require("@slack/client");
+const { RTMClient, WebClient } = require('@slack/client');
 
 class Slack {
   constructor(botToken) {
