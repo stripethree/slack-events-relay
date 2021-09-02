@@ -39,7 +39,7 @@
     "eslint-plugin-mocha": "^9.0.0",
     "eslint-plugin-prettier": "^3.4.0",
     "husky": "^7.0.1",
-    "mocha": "^9.1.0",
+    "mocha": "^9.1.1",
     "nodemon": "^2.0.12",
     "nyc": "^15.1.0",
     "prettier": "^2.3.2",
