@@ -1,0 +1,31 @@
+name: Deploy to Development
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  deploy_to_ec2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: development
+
+    steps:
+      - name: Git checkout
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ec2-3-137-219-0.us-east-2.compute.amazonaws.com
+          username: ubuntu
+          key: ${{ secrets.AWS_SSH_PRIVATE_KEY }}
+          port: 22
+          timeout: 5m
+          script: |
+            cd slack-events-relay/
+            APP_NAME="slack-events-relay"
+            pm2 stop $APP_NAME
+            git checkout main
+            git stash
+            git pull
+            npm i
+            pm2 start src/config/pm2.config.js --env development
