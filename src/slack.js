@@ -4,7 +4,7 @@ class Slack {
   constructor(botToken) {
     this.rtmClient = new RTMClient(botToken, {
       useRtmConnect: true,
-      dataStore: false,
+      dataStore: false
     });
     this.webClient = new WebClient(botToken);
   }
@@ -12,7 +12,7 @@ class Slack {
   sendMessage(channelId, message) {
     const options = {
       channel: channelId,
-      text: message,
+      text: message
     };
     return this.webClient.chat.postMessage(options);
   }
