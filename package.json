@@ -11,7 +11,7 @@
     "prettier": "npx prettier --config .prettierrc \"src/**/*.{js,jsx}\" --check",
     "prettier-fix": "npx prettier --config .prettierrc \"src/**/*.{js,jsx}\" --write --loglevel warn",
     "swagger-autogen": "node src/utils/swagger.js",
-    "prepare": "husky || true"
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -44,5 +44,11 @@
     "nodemon": "^3.1.4",
     "prettier": "^3.0.0",
     "typescript": "^5.0.4"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }
