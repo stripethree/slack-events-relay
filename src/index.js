@@ -1,19 +1,29 @@
-const bodyParser = require('body-parser');
-const debug = require('debug')('relay-app');
+const cors = require('cors');
 const express = require('express');
-const logError = require('debug')('relay-app:error');
-const Raven = require('raven');
+const bodyParser = require('body-parser');
+
+const Sentry = require('@sentry/node');
+
+const { statusRouter } = require('./routes');
+
+const logger = require('./utils/logger');
+const { initSentry } = require('./utils/sentry');
+
 const { Slack } = require('./slack');
 
 const app = express();
 
+app.use(cors());
+
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+
 const slack = new Slack(process.env.SLACK_BOT_TOKEN);
 
-if (process.env.SENTRY_DSN) {
-  Raven.config(process.env.SENTRY_DSN, {
-    captureUnhandledRejections: true,
-  }).install();
-}
+const router = express.Router();
+
+// unprotected routes
+router.use('/status', statusRouter);
 
 // HELPERS
 const API_KEY = process.env.API_KEY;
@@ -27,7 +37,6 @@ function verifyRelayReq(req) {
   }
 }
 
-// ROUTES
 app.get('/', (req, res) => res.send('🤖'));
 
 const channelId = process.env.SLACK_CHANNEL_ID;
@@ -39,18 +48,20 @@ app.post('/relay', bodyParser.json({ verify: verifyRelayReq }), (req, res) => {
   res.sendStatus(200);
 });
 
-// START THE THINGS
-if (process.env.NODE_ENV !== 'test') {
-  const port = process.env.PORT || 8080;
-  app.listen(port, (err) => {
-    if (err) {
-      throw err;
-    }
-    debug('Server running on port %s', port);
+const useSentry = !!process.env.SENTRY_DSN;
+if (useSentry) {
+  initSentry(process.env.SENTRY_DSN, process.env.NODE_ENV);
+
+  // fall through error handler
+  app.use(function onError(err, req, res, next) {
+    logger.error(err);
+    res.statusCode = 500;
+    res.end(res.sentry + '\n');
   });
-  slack.start();
 }
 
-exports.app = app;
-exports.slack = slack;
-exports.verifyRelayReq = verifyRelayReq;
+const port = process.env.PORT || 8080;
+app.listen(port, async () => {
+  logger.info(`http server listening on port ${port}`);
+  slack.start();
+});
