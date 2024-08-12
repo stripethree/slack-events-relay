@@ -48,9 +48,13 @@ app.post('/relay', bodyParser.json({ verify: verifyRelayReq }), (req, res) => {
   res.sendStatus(200);
 });
 
-const useSentry = !!process.env.SENTRY_DSN;
+const sentryDsn = process.env.SENTRY_DSN.trim();
+const useSentry = !!sentryDsn;
+const nodeEnv = process.env.NODE_ENV || 'development';
+
+logger.info(`Monitoring with Sentry is ${useSentry ? 'enabled' : 'disabled'}`);
 if (useSentry) {
-  initSentry(process.env.SENTRY_DSN, process.env.NODE_ENV);
+  initSentry(appConfig.SENTRY_DSN, appConfig.NODE_ENV);
 
   // fall through error handler
   app.use(function onError(err, req, res, next) {
