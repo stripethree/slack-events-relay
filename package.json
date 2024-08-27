@@ -24,7 +24,7 @@
     "@slack/client": "^5.0.2",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
-    "dayjs": "^1.11.12",
+    "dayjs": "^1.11.13",
     "express": "^4.19.2",
     "winston": "^3.14.1",
     "winston-cloudwatch": "^6.3.0"
