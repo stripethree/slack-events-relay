@@ -20,7 +20,7 @@
   "author": "Jeff Israel (jeff@codefindsaway.com)",
   "dependencies": {
     "@sentry/node": "^8.26.0",
-    "@sentry/profiling-node": "^8.27.0",
+    "@sentry/profiling-node": "^8.32.0",
     "@slack/client": "^5.0.2",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
